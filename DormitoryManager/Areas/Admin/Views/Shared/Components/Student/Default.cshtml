@@ -1,0 +1,81 @@
+﻿@using DormitoryManager.Data;
+@model IEnumerable<DormitoryManager.Application.ViewModels.System.FloorViewModel>
+@{
+    List<FloorViewModel> listFloorViewModel =   Model as List<FloorViewModel>;
+    listFloorViewModel = listFloorViewModel == null ? new List<FloorViewModel>() : listFloorViewModel;
+}
+
+<div id="modal-add-edit" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add/edit student</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form method="post" action="#" class="form-horizontal" role="form" id="frmStudentInfor">
+                        <div class="row">
+                            <div class="form-group col-lg-12 col-md-12 col-hidIdsm-12">
+                                <label for="txtStudentName" class="control-label">Tên sinh viên</label>
+                                <input type="text" name="StudentName" class="form-control" id="txtStudentName">
+                            </div>
+                            <div class="form-group col-lg-8 col-md-6 col-sm-12">
+                                <label for="txtSudentId" class="control-label">Mã sinh viên</label>
+                                <input type="text" name="StudentIdentify" class="form-control" id="txtSudentId">
+                            </div>
+                            <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                                <label for="txtClass" class="control-label">Lớp</label>
+                                <input type="text" name="Class" class="form-control" id="txtClass" />
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                <label for="txtBirthday" class=" control-label">Ngày sinh</label>
+                                <input type="date" name="Birthday" class="form-control" id="txtBirthday" />
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6">
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                <label for="selFloor" class=" control-label">Tầng</label>
+                                <select id="selFloor" class="form-control" name="FloorId">
+                                    @foreach (var floor in listFloorViewModel)
+                                    {
+                                        <option value="@floor.Id">@floor.FloorName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                <label for="selRoom" class=" control-label">Phòng</label>
+                                <select id="selRoom" class="form-control" name="RoomId">
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <label for="txtAddress" class=" control-label">Địa chỉ</label>
+                                <input type="text" name="Address" class="form-control" id="txtAddress">
+                            </div>
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" id="ckStatus">
+                                        <span class="text">Active.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="hidId" name="Id" value="" />
+                        <div id="tokenAddEdit">
+                            @Html.AntiForgeryToken()
+                        </div>
+                        <div class="form-group">
+                            <div class="justify-content-between">
+                                <button type="button" id="btnSave" class="btn btn-primary">
+                                    <i class="fa fa-save mr-1"></i>Save
+                                </button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-default float-right">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

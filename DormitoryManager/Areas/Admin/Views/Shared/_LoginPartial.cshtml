@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DormitoryManager.Data.Entities
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li>
+        <a href="/Admin/Account/Logout">
+            <i class="fa fa-sign-out"></i> Đăng xuất
+        </a>
+    </li>
+
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}

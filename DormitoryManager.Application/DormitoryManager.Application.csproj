@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DormitoryManager.Data.EF\DormitoryManager.Data.EF.csproj" />
+    <ProjectReference Include="..\DormitoryManager.Data\DormitoryManager.Data.csproj" />
+    <ProjectReference Include="..\DormitoryManager.Utilities\DormitoryManager.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

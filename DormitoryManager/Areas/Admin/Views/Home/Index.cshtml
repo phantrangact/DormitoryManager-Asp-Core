@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-lg-8">
+        @await Html.PartialAsync("_NumberBox")
+    </div>
+    <div class="col-lg-4">
+        @await Html.PartialAsync("_TimeLineBox")
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        @await Html.PartialAsync("_StudentList")
+    </div>
+    <div class="col-lg-4">
+        @await Html.PartialAsync("_RoomList")
+    </div>
+</div>
+@section Scripts{
+    <script src="@Url.Content("~/lib/slimscroll/jquery.slimscroll.min.js")" asp-append-version="true"></script>
+    <!-- Flot -->
+    <script src="@Url.Content("~/lib/flot/jquery.flot.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/flot/jquery.flot.tooltip.min.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/flot/jquery.flot.spline.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/flot/jquery.flot.resize.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/flot/jquery.flot.pie.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/flot/jquery.flot.symbol.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/flot/jquery.flot.time.js")" asp-append-version="true"></script>
+    <!-- Peity -->
+    <script src="@Url.Content("~/lib/peity/jquery.peity.min.js")" asp-append-version="true"></script>
+    <!-- Custom and plugin javascript -->
+    <!-- jQuery UI -->
+    <!-- Jvectormap -->
+    <script src="@Url.Content("~/lib/jvectormap/jquery-jvectormap-2.0.2.min.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/jvectormap/jquery-jvectormap-world-mill-en.js")" asp-append-version="true"></script>
+    <!-- EayPIE -->
+    <script src="@Url.Content("~/lib/easypiechart/jquery.easypiechart.js")" asp-append-version="true"></script>
+    <!-- Sparkline -->
+    <script src="@Url.Content("~/lib/sparkline/jquery.sparkline.min.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/chartJs/Chart.min.js")" asp-append-version="true"></script>
+    <!--Custom js-->
+    <script src="@Url.Content("~/admin-side/js/home/chart.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/admin-side/js/home/ListRoom.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/admin-side/js/home/ListStudent.js")" asp-append-version="true"></script>
+}

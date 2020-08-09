@@ -1,0 +1,30 @@
+﻿@{ 
+    DateTime now = DateTime.Now;
+ }
+
+<div class="ibox ">
+    <div class="ibox-content">
+        <div>
+            <span class="float-right text-right">
+                <small>Doanh thu hang thang: <strong>ký túc xá học viện kỹ thuật mật mã</strong></small>
+                <br />
+            </span>
+            <h3 class="font-bold no-margins">
+                Doanh thu
+            </h3>
+            <small>Doanh thu thuê phòng và bán nhu yếu phẩm.</small>
+        </div>
+
+        <div class="m-t-lg">
+            <canvas id="lineChart" height="70"></canvas>
+        </div>
+
+        <div class="m-t-md">
+            <small class="float-right">
+                <i class="fa fa-clock-o"> </i>
+                @now.ToLocalTime()
+            </small>
+        </div>
+
+    </div>
+</div>

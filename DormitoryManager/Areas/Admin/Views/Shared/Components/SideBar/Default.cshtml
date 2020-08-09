@@ -1,0 +1,50 @@
+﻿@model List<DormitoryManager.Application.ViewModels.System.FunctionViewModel>
+<div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+        <li class="nav-header">
+            <div class="dropdown profile-element">
+                <img alt="image" class="rounded-circle" src="@User.GetSpecificClaim("Avatar")" onerror="if (this.src != '/img/no-user.png') this.src = '/img/no-user.png';">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="block m-t-xs font-bold">@User.GetSpecificClaim("FullName")</span>
+                    <span class="text-muted text-xs block">@User.GetSpecificClaim("Roles") <b class="caret"></b></span>
+                </a>
+                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                    <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
+                    <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
+                    <li class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/">Logout</a></li>
+                </ul>
+            </div>
+            <div class="logo-element">
+
+            </div>
+        </li>
+        @foreach (var item in Model.Where(x => string.IsNullOrEmpty(x.ParentId)))
+        {
+            <li>
+                <a href="#" aria-expanded="false">
+                    <i class="fa @item.IconCss"></i>
+                    <span class="nav-label">@item.Name</span>
+                    <span class="fa arrow"></span>
+                </a>
+                @if (Model.Any(x => x.ParentId == item.Id))
+                {
+                    <ul id="" class="nav nav-second-level collapse in" aria-expanded="false">
+                        @foreach (var jitem in Model.Where(x => x.ParentId == item.Id))
+                        {
+                            <li>
+                                <a href="@jitem.URL">
+                                    <i class="fa @jitem.IconCss"></i>
+                                    @jitem.Name
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </li>
+
+        }
+
+    </ul>
+</div>

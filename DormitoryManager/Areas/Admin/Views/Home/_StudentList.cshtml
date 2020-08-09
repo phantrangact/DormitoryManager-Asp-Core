@@ -1,0 +1,38 @@
+﻿<div class="ibox ">
+    <div class="ibox-title">
+        <h5>Danh sách sinh viên</h5>
+        <div class="ibox-tools">
+            <a class="collapse-link">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="close-link">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div class="ibox-content table-responsive">
+        <table class="table table-hover no-margins" id="tbl-student">
+            <thead>
+                <tr>
+                    <th>Account</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Floor</th>
+                    <th>Room</th>
+                </tr>
+            </thead>
+            <tbody class="tbl-content">
+              
+            </tbody>
+        </table>
+        <script id="table-template" type="x-tmpl-mustache">
+            <tr>
+                <td>{{StudentIdentify}}</td>
+                <td>{{FullName}}</td>
+                <td>{{{Class}}}</td>
+                <td>{{{Floor}}}</td>
+                <td>{{{Room}}}</td>
+            </tr>
+        </script>
+    </div>
+</div>
